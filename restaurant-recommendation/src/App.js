@@ -9,6 +9,7 @@ import Recommendation from "./Component/Recommendation";
 import RestaurantDetail from "./Component/RestaurantDetail";
 import { Link } from "react-router-dom";
 import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export default class App extends Component {
   state = {

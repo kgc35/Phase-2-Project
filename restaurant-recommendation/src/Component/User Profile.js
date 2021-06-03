@@ -21,44 +21,63 @@ export default class userProfile extends Component {
     );
 
     return (
-      <div>
-        <NavBar history={this.props.history} loginUser={this.props.loginUser} />
-        <div>
-          {this.props.loginUser.length > 0 ? (
-            <ul>
-              <img src={currentUser.profileimg} alt="user profile image" />
-              <li>User name: {currentUser.username} </li>
-              <li>Real name: {currentUser.realname}</li>
-              <button onClick={() => this.props.logOut()}>Logout</button>
-              <button onClick={() => this.props.history.push("/home")}>
-                Home
-              </button>
-            </ul>
-          ) : (
-            this.props.history.push("/")
-          )}
-        </div>
-        <form className="search">
-          <input
-            type="text"
-            value={this.state.searchText}
-            onChange={(e) => this.handleSearch(e.target.value)}
+      <div class="container container mt-4 mb-5">
+        <div className="profile">
+          <NavBar
+            history={this.props.history}
+            loginUser={this.props.loginUser}
           />
-        </form>
-        <div>
-          {this.props.loginUser.length > 0
-            ? searchFilter.map((user) => {
-                return (
-                  <AllPeople
-                    user={user}
-                    currentUser={currentUser}
-                    key={user.id}
-                    addFriend={this.props.addFriend}
-                    removeFriend={this.props.removeFriend}
-                  />
-                );
-              })
-            : this.props.history.push("/")}
+          <div>
+            {this.props.loginUser.length > 0 ? (
+              <ul>
+                <img
+                  src={currentUser.profileimg}
+                  alt="user profile image"
+                  className="userImage"
+                />
+                <li>User name: {currentUser.username} </li>
+                <li>Real name: {currentUser.realname}</li>
+                <button
+                  className="btn btn-default btn-success"
+                  onClick={() => this.props.logOut()}
+                >
+                  Logout
+                </button>
+                <button
+                  className="btn btn-default btn-primary"
+                  onClick={() => this.props.history.push("/home")}
+                >
+                  Back
+                </button>
+              </ul>
+            ) : (
+              this.props.history.push("/")
+            )}
+          </div>
+          <form className="search">
+            <input
+              className="searchInput"
+              type="text"
+              value={this.state.searchText}
+              placeholder="Search User Name"
+              onChange={(e) => this.handleSearch(e.target.value)}
+            />
+          </form>
+          <div>
+            {this.props.loginUser.length > 0
+              ? searchFilter.map((user) => {
+                  return (
+                    <AllPeople
+                      user={user}
+                      currentUser={currentUser}
+                      key={user.id}
+                      addFriend={this.props.addFriend}
+                      removeFriend={this.props.removeFriend}
+                    />
+                  );
+                })
+              : this.props.history.push("/")}
+          </div>
         </div>
       </div>
     );

@@ -30,29 +30,49 @@ export default class Login extends Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={(e) => this.handleLogin(e)}>
-          <input
-            type="text"
-            name="username"
-            value={this.state.userName}
-            placeholder="Enter your username"
-            onChange={(e) =>
-              this.setState({ userName: e.target.value.toLowerCase() })
-            }
-          />
+      <body className="text-center">
+        <main className="form-signin">
+          <form onSubmit={(e) => this.handleLogin(e)} className="login">
+            <h1 className="h3 mb-3 fw-normal">Sign in</h1>
+            <div className="form-floating">
+              <input
+                id="floatingInput"
+                className="form-control"
+                type="text"
+                name="username"
+                value={this.state.userName}
+                placeholder="Enter your username"
+                onChange={(e) =>
+                  this.setState({ userName: e.target.value.toLowerCase() })
+                }
+              />
+              <label for="floatingInput">Username</label>
+            </div>
+            <div className="form-floating">
+              <input
+                type="password"
+                className="form-control"
+                id="floatingPassword"
+                value={this.state.userPassword}
+                placeholder="Enter your passwords"
+                onChange={(e) =>
+                  this.setState({ userPassword: e.target.value })
+                }
+              />
+              <label for="floatingInput">Password</label>
+            </div>
+            <button className="w-100 btn btn-sm btn-primary">Log in</button>
+          </form>
           <br />
-          <input
-            type="password"
-            value={this.state.userPassword}
-            placeholder="Enter your passwords"
-            onChange={(e) => this.setState({ userPassword: e.target.value })}
-          />
-          <br />
-          <button>Log in</button>
-        </form>
-        <button onClick={() => this.handleRegister()}>Register</button>
-      </div>
+          <button
+            onClick={() => this.handleRegister()}
+            className="w-100 btn btn-sm btn-success"
+          >
+            Sign Up
+          </button>
+          <p class="mt-5 mb-3">©2021</p>
+        </main>
+      </body>
     );
   }
 }

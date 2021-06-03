@@ -42,41 +42,66 @@ export default class Registration extends Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={(e) => this.handleRegister(e)}>
-          <input
-            type="text"
-            value={this.state.username}
-            placeholder="Enter your username"
-            onChange={(e) =>
-              this.setState({ username: e.target.value.toLowerCase() })
-            }
-          />
-          <br />
-          <input
-            type="password"
-            value={this.state.password}
-            placeholder="Enter your passwords"
-            onChange={(e) => this.setState({ password: e.target.value })}
-          />
-          <br />
-          <input
-            type="text"
-            value={this.state.realname}
-            placeholder="Enter your name here"
-            onChange={(e) => this.setState({ realname: e.target.value })}
-          />
-          <br />
-          <input
-            type="text"
-            value={this.state.profileimg}
-            placeholder="Your image"
-            onChange={(e) => this.setState({ profileimg: e.target.value })}
-          />
-          <br />
-          <button>Register</button>
-        </form>
-      </div>
+      <body className="text-center">
+        <main class="form-signin">
+          <form onSubmit={(e) => this.handleRegister(e)}>
+            <h1 class="h3 mb-3 fw-normal"> Sign Up</h1>
+            <div className="form-floating">
+              <input
+                type="text"
+                className="form-control"
+                id="floatingInput"
+                value={this.state.username}
+                placeholder="Enter your username"
+                onChange={(e) =>
+                  this.setState({ username: e.target.value.toLowerCase() })
+                }
+              />
+              <label for="floatingInput">Username</label>
+            </div>
+
+            <div className="form-floating">
+              <input
+                type="password"
+                className="form-control"
+                id="floatingPassword"
+                value={this.state.password}
+                placeholder="Enter your passwords"
+                onChange={(e) => this.setState({ password: e.target.value })}
+              />
+              <label for="floatingPassword">Password</label>
+            </div>
+
+            <div className="form-floating">
+              <input
+                type="text"
+                className="form-control"
+                id="floatingInput"
+                value={this.state.realname}
+                placeholder="Enter your name here"
+                onChange={(e) => this.setState({ realname: e.target.value })}
+              />
+              <label for="floatingInput">Your Name</label>
+            </div>
+
+            <div className="form-floating">
+              <input
+                type="text"
+                className="form-control"
+                id="floatingInput"
+                value={this.state.profileimg}
+                placeholder="Your image"
+                onChange={(e) => this.setState({ profileimg: e.target.value })}
+              />
+              <label for="floatingInput">Your Image</label>
+            </div>
+
+            <div>
+              <button className="w-100 btn btn-sm btn-primary">Register</button>
+            </div>
+          </form>
+        </main>
+      </body>
     );
   }
 }

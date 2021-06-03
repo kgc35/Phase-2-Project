@@ -7,20 +7,31 @@ export default class NavBar extends Component {
 
   render() {
     return (
-      <div>
+      <nav className="navbar">
         {this.props.loginUser.length > 0 ? (
-          <ul>
-            <p>{this.props.loginUser[0].realname} is logged in</p>
+          <li className="nav-link">
             <img
               src={this.props.loginUser[0].profileimg}
               onClick={() => this.handleClick()}
             />
-          </ul>
+            <p onClick={() => this.handleClick()}>
+              {this.props.loginUser[0].realname}
+            </p>
+          </li>
         ) : (
           this.props.history.push("/")
         )}
-        <li>Contact</li>
-      </div>
+        <li className="nav-link">
+          <Link className="nav-link" to="/home">
+            Home
+          </Link>
+        </li>
+        <li className="nav-link">
+          <Link className="nav-link" to="/">
+            Logout
+          </Link>
+        </li>
+      </nav>
     );
   }
 }

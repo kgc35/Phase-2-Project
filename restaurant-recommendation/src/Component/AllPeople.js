@@ -2,18 +2,23 @@ import React, { Component } from "react";
 
 export default class AllPeople extends Component {
   render() {
-    // let removeSelfArray = this.props.user[0];
-    // console.log(removeSelfArray);
     return (
-      <div>
-        <p>{this.props.user.realname}</p>
-        <img src={this.props.user.profileimg} />
+      <div className="allUser">
+        <p className="user-name">{this.props.user.realname}</p>
+        <img src={this.props.user.profileimg} className="userImage" />
+        <br />
         {this.props.currentUser.friends.includes(this.props.user.id) ? (
-          <button onClick={() => this.props.removeFriend(this.props.user)}>
+          <button
+            className="w-100 btn btn-sm btn-danger"
+            onClick={() => this.props.removeFriend(this.props.user)}
+          >
             Remove Friend
           </button>
         ) : (
-          <button onClick={() => this.props.addFriend(this.props.user)}>
+          <button
+            className="w-100 btn btn-sm btn-primary"
+            onClick={() => this.props.addFriend(this.props.user)}
+          >
             Add Friend
           </button>
         )}
